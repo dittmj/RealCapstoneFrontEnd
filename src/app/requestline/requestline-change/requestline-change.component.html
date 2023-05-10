@@ -1,0 +1,29 @@
+<div id="component">
+    <header>
+        <app-menubar></app-menubar>
+        <span id="pageTitle">{{pageTitle}}</span>
+    </header>
+    <main>
+        <table class="table table-sm" *ngIf="requestLine" >
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td><input [(ngModel)]="requestLine.id" readonly></td>
+                </tr>
+                <tr>
+                    <td>Product</td>
+                    <td>
+                        <select [(ngModel)]="requestLine.productId">
+                            <option *ngFor="let p of products" value="{{ p.id }}">{{p.name}}</option>
+                         </select>   
+                    </td>
+                </tr>         
+                <tr>
+                    <td>Quantity</td>
+                    <td><input [(ngModel)]="requestLine.quantity"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="save()" class="btn btn-primary">Change</button>
+    </main>
+</div>

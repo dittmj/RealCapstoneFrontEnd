@@ -1,0 +1,33 @@
+<div class="request-review-item">
+    <h3>Request Details</h3>
+    <p><strong>Description</strong> {{request.description}}</p>
+    <p><strong>Justification</strong> {{request.justification}}</p>
+    <p><strong>Delivery Mode</strong> {{request.deliveryMode}}</p>
+    <p><strong>Total</strong> {{request.total}}</p>
+    <p><strong>Status</strong> {{request.status}}</p>
+
+    <h3>Request Lines</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Line Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let requestLine of request.requestLines">
+                <td>{{requestLine.product?.name}}</td>
+                <td>{{requestLine.quantity}}</td>
+                <td>{{requestLine.product?.price}}</td>
+                <td>{{requestLine.quantity * requestLine.product!.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="buttons">
+        <button (click)="approve(request)">APPROVE</button>
+        <button (click)="reject()">REJECT</button>
+        <input [(ngModel)]="request.rejectionReason">
+    </div>
+</div>

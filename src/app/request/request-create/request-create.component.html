@@ -1,0 +1,51 @@
+<div id="component">
+    <header>
+        <app-menubar></app-menubar>
+        <span id="pageTitle">{{pageTitle}}</span>
+    </header>
+    <main>
+        <table class="table table-sm" *ngIf="request" >
+          <tbody>
+            <tr>
+                <td>Id</td>
+                <td><input [(ngModel)]="request.id" readonly></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input [(ngModel)]="request.description"></td>
+            </tr>
+            <tr>
+                <td>Justification</td>
+                <td><input [(ngModel)]="request.justification" ></td>
+            </tr>
+            <tr>
+                <td>Rejection Reason</td>
+                <td><input [(ngModel)]="request.rejectionReason"></td>
+            </tr>
+            <tr>
+                <td>Delivery Mode</td>
+                <td><input [(ngModel)]="request.deliveryMode"></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><input [(ngModel)]="request.status" readonly></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td><input [ngModel]="request.total | currency"></td>
+            </tr>
+            <tr>
+                <td>User</td>
+                <td>
+                 <select [(ngModel)]="request.userId">
+                     <option *ngFor="let u of users" value="{{ u.id }}">{{u.username}}</option>
+                  </select> 
+                </td>
+               
+            </tr>
+        </tbody>
+    </table>
+        <button (click)="save()" class="btn btn-primary">Create</button>
+    </main>
+</div>
+

@@ -1,0 +1,9 @@
+input, select {
+    border-radius: 7px;
+    
+}
+
+#pageTitle{
+    font-weight: bold;
+    font-size: 1.3em;
+}
